@@ -5,7 +5,7 @@
 #define BUF 128 /* can change the buffer size as well */
 #define TOT 10 /* change to accomodate other sizes, change ONCE here */
 
-int main(int argc, char *argv[]) {
+int main() {
 
    int num, *num_array, count=0;
    char line_buff[BUF], *p;
