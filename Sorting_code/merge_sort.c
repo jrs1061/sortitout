@@ -9,7 +9,7 @@
  
 void mergeSort(int [], int, int, int);
 void partition(int [],int, int);
-void get_size();
+int get_size();
 
 int size;
  
@@ -17,6 +17,8 @@ int main()
 {
     int i;
  
+    get_size();
+
     printf("Enter total number of elements:");
     scanf("%d", &size);
 
@@ -36,16 +38,25 @@ int main()
    return 0;
 }
 
-void get_size()
+/*
+ * Get the size of the file being opened
+ */
+int get_size()
 {
    int count=0;
    char line_buff[BUF];
-   FILE *file = fopen("LIST", "r");
+   FILE *file;
 
-   while(NULL!=fgets(line_buff, sizeof(line_buff), file)){
+   if ((file = fopen ("LIST", "r")) == NULL)
+    exit (1);
+
+   while (!feof (file) && fgets(line_buff, sizeof(line_buff), file))
      count++;
-   }
-   size=count;
+
+   printf("Count =%d\n", count);
+
+   //size=count;
+   fclose (file);
 }
  
 void partition(int list[],int low,int high)
