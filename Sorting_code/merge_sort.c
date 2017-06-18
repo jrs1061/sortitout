@@ -1,19 +1,26 @@
 /*
- * C Program to Input Few Numbers & Perform Merge Sort on them using Recursion
+ * C Program to a Perform Merge Sort using Recursion
  */
  
 #include <stdio.h>
+#include <stdlib.h>
+
+#define BUF 12
  
 void mergeSort(int [], int, int, int);
 void partition(int [],int, int);
+void get_size();
+
+int size;
  
 int main()
 {
-    int list[50];
-    int i, size;
+    int i;
  
     printf("Enter total number of elements:");
     scanf("%d", &size);
+
+    int list[size];
     printf("Enter the elements:\n");
     for(i = 0; i < size; i++)
     {
@@ -27,6 +34,18 @@ int main()
     }
  
    return 0;
+}
+
+void get_size()
+{
+   int count=0;
+   char line_buff[BUF];
+   FILE *file = fopen("LIST", "r");
+
+   while(NULL!=fgets(line_buff, sizeof(line_buff), file)){
+     count++;
+   }
+   size=count;
 }
  
 void partition(int list[],int low,int high)
@@ -44,7 +63,7 @@ void partition(int list[],int low,int high)
  
 void mergeSort(int list[],int low,int mid,int high)
 {
-    int i, mi, k, lo, temp[50];
+    int i, mi, k, lo, temp[high+1];
  
     lo = low;
     i = low;
