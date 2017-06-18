@@ -15,24 +15,49 @@ int size;
  
 int main()
 {
-    int i;
+   int i, value;
+   FILE *file;
  
-    get_size();
+   get_size();
 
-    printf("Enter total number of elements:");
-    scanf("%d", &size);
+   /*printf("Enter total number of elements:");
+   *scanf("%d", &size);
+   *
+   *int list[size];
+   *printf("Enter the elements:\n");
+   *for(i = 0; i < size; i++)
+   *{
+   *     scanf("%d", &list[i]);
+   *}
+   */
+   int list[size];
 
-    int list[size];
-    printf("Enter the elements:\n");
-    for(i = 0; i < size; i++)
+   if ((file = fopen ("LIST", "r")) == NULL)
+      exit(1);
+
+   printf("Size is %d\n", size);
+   for(i = 0; i < size; i++)
     {
-         scanf("%d", &list[i]);
+      fscanf(file, "%d", &value);
+      //printf("%d\n", value);
+      list[i] = value;
     }
-    partition(list, 0, size - 1);
-    printf("After merge sort:\n");
-    for(i = 0;i < size; i++)
+
+//   while (!feof (file) && fscanf (file, "%d", &list[i}) && i++ < 100 )
+ //   integers[i] = value;
+
+   fclose(file);
+
+   printf("Before merge sort:\n");
+   for(i = 0;i < size; i++)
     {
-         printf("%d   ",list[i]);
+       printf("%d   ",list[i]);
+    }
+   partition(list, 0, size - 1);
+   printf("\nAfter merge sort:\n");
+   for(i = 0;i < size; i++)
+    {
+       printf("%d   ",list[i]);
     }
  
    return 0;
@@ -55,7 +80,7 @@ int get_size()
 
    printf("Count =%d\n", count);
 
-   //size=count;
+   size=count;
    fclose (file);
 }
  
