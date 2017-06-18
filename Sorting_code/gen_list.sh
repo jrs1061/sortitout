@@ -3,6 +3,8 @@
 # Generate a list of random numbers with no repeats
 #
 
+no_repeat=false
+
 echo "How big?"
 read size
 
@@ -12,5 +14,5 @@ read size
 for i in $(seq 1 ${size})
   do
    value=$( expr ${RANDOM} % ${size} )
-   grep -q ${value} LIST || echo ${value} >> LIST
+   [ ${no_repeat}X = "trueX" ] && grep -q ${value} LIST || echo ${value} >> LIST
 done

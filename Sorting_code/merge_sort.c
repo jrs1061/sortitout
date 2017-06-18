@@ -16,7 +16,7 @@ int size;
 int main()
 {
    int i, value;
-   FILE *file;
+   FILE *file, *file2;
  
    get_size();
 
@@ -52,7 +52,8 @@ int main()
    printf("\nAfter merge sort:\n");
    for(i = 0;i < size; i++)
     {
-       printf("%d   ",list[i]);
+       printf("%d\n",list[i]);
+       //fprintf(file2, "%d\n%", list[i]);
     }
  
    return 0;
