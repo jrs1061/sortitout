@@ -21,30 +21,25 @@ int main()
    get_size();
 
    /*printf("Enter total number of elements:");
-   *scanf("%d", &size);
-   *
-   *int list[size];
-   *printf("Enter the elements:\n");
-   *for(i = 0; i < size; i++)
-   *{
-   *     scanf("%d", &list[i]);
-   *}
-   */
+    *scanf("%d", &size);
+    *
+    *int list[size];
+    *printf("Enter the elements:\n");
+    *for(i = 0; i < size; i++)
+    *{
+    *     scanf("%d", &list[i]);
+    *}
+    */
    int list[size];
 
    if ((file = fopen ("LIST", "r")) == NULL)
       exit(1);
 
-   printf("Size is %d\n", size);
    for(i = 0; i < size; i++)
     {
       fscanf(file, "%d", &value);
-      //printf("%d\n", value);
       list[i] = value;
     }
-
-//   while (!feof (file) && fscanf (file, "%d", &list[i}) && i++ < 100 )
- //   integers[i] = value;
 
    fclose(file);
 
