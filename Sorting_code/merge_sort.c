@@ -5,7 +5,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+   //\\
+  //  \\ not strictly necessary this specifies the line size
+ //    \\ when reading from file.
+//      \\ 
+
 #define BUF 12
+char line_buff[BUF];
  
 void mergeSort(int [], int, int, int);
 void partition(int [],int, int);
@@ -65,7 +71,7 @@ int main()
 int get_size()
 {
    int count=0;
-   char line_buff[BUF];
+   //char line_buff[BUF];
    FILE *file;
 
    if ((file = fopen ("LIST", "r")) == NULL)
